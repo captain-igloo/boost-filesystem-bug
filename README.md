@@ -1,4 +1,4 @@
-I am using boost::filesystem to loop over files in a directory and conditionally delete them.  It works in boost 1.71 but not in boost 1.74.  Is this a bug or am I doing something wrong?  What is the recommended way to iterate over a directory and delete files?
+I am using boost::filesystem to loop over files in a directory and conditionally delete them. It works in boost 1.71 but in boost 1.74 it crashes after the first file has been deleted. Is this a bug or am I doing something wrong? What is the recommended way to iterate over a directory and delete files?
 
     $ git clone https://github.com/captain-igloo/boost-filesystem-bug.git
 
@@ -22,3 +22,5 @@ I am using boost::filesystem to loop over files in a directory and conditionally
     "/tmp/b"
     filesystem::recursive_directory_iterator increment error: No such file or directory
     a.out: /usr/include/boost/filesystem/directory.hpp:534: void boost::filesystem::recursive_directory_iterator::disable_recursion_pending(bool): Assertion `(!is_end())&&("disable_recursion_pending() on end recursive_directory_iterator")' failed.
+
+See https://github.com/boostorg/filesystem/issues/288
